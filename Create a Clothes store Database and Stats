@@ -1,0 +1,29 @@
+Create a Clothes store Database
+
+
+CREATE TABLE clothes ( id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, date_added INTEGER);
+
+INSERT INTO clothes VALUES (1,"tops", 25.9, 20, 12.20);
+INSERT INTO clothes VALUES (2, "pants", 30.9, 40, 12.12);
+INSERT INTO clothes VALUES (3, "skirts", 21.5, 12, 11.12);
+INSERT INTO clothes VALUES (4, "shorts", 15.5, 17, 11.20);
+INSERT INTO clothes VALUES (5, "long sleeves", 20.5, 20, 11.30);
+INSERT INTO clothes VALUES (6, "short sleeves", 23.5, 20, 11.21);
+INSERT INTO clothes VALUES (7, "leggings", 40.5, 2, 9.20);
+INSERT INTO clothes VALUES (8, "sandals", 12.4, 30, 9.07);
+INSERT INTO clothes VALUES (9, "tennis", 12.5, 39, 9.12);
+INSERT INTO clothes VALUES (10, "gloves", 13.4,30, 8.20);
+INSERT INTO clothes VALUES (11, "underwear", 12.5,20,8.26);
+INSERT INTO clothes VALUES (12, "hats", 28.5, 5, 8.25);
+INSERT INTO clothes VALUES (13, "jewelery", 20.5, 30, 8.20);
+INSERT INTO clothes VALUES (14, "makeup", 30.6, 39, 7.30);
+INSERT INTO clothes VALUES (15, "paint", 40.5, 30, 8.12);
+
+
+--display the database ordered by price less than 20 and date desc
+SELECT * FROM clothes WHERE price < 20 ORDER BY price, date_added desc;
+
+
+-- display the total price for all  items in clothes
+SELECT SUM(price) FROM clothes
+
