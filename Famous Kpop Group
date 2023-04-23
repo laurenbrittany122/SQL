@@ -1,0 +1,42 @@
+-Displays a table for a K-pop group with the following schema: 'id' as INTEGER PRIMARY KEY, 'singer' as TEXT, 'solo_song' as INTEGER, and 'age' as INTEGER?"
+
+CREATE TABLE kpop_group (id INTEGER PRIMARY KEY, singer TEXT, solo_song INTEGER,age INTEGER);
+
+INSERT INTO kpop_group VALUES (1,'Jennie Kim',1,27);
+INSERT INTO kpop_group VALUES (2, 'Lisa',2,26);
+INSERT INTO kpop_group VALUES (3,'Jisoo',2,28);
+INSERT INTO kpop_group VALUES (4, 'Rose',2,26);
+
+
+-Displays the Kpop Group Blackpink's songs and their albums with year it was released.
+
+CREATE TABLE BP_songs( id INTEGER PRIMARY KEY, song_name TEXT, release_year INTEGER, album TEXT);
+
+INSERT INTO BP_songs VALUES (7,'Hope Not', 2018, 'Kill this love');
+INSERT INTO BP_songs VALUES (8, 'Sour Candy', 2020, 'Chromatica');
+INSERT INTO BP_songs VALUES (9, 'Hard to love',2022, 'Born Pink');
+INSERT INTO BP_songs VALUES (10, 'Pink Venom', 2022, 'Born Pink');
+
+-Displays all solo songs from Blackpink.
+
+CREATE TABLE solo_songs (singer_id INTEGER,song_name TEXT, dabut INTEGER, spotify_monthlylisteners INTEGER);
+
+INSERT INTO solo_songs VALUES (1,'Solo',2018,474654642);
+INSERT INTO solo_songs VALUES (2,'Money',2021,681232676);
+INSERT INTO solo_songs VALUES (2,'LALISA',2021,308600333);
+INSERT INTO solo_songs VALUES (3,'Flower',2023,79522543);
+INSERT INTO solo_songs VALUES (3,'All eyes on me',2023,27965141);
+INSERT INTO solo_songs VALUES (4,'On the ground',2021,280369123);
+INSERT INTO solo_songs VALUES (4,'Gone',2021,222908170);
+
+- Displays all of Blackpinks songs ordered by release year.
+
+SELECT * FROM BP_songs ORDER BY release_year;
+
+-Displays Blackpink's memebers solo songs they have released ordered by the highest to lowest spotify monthly listeners. 
+
+SELECT Kpop_group.singer, solo_songs.song_name,solo_songs.spotify_monthlylisteners 
+FROM Kpop_group 
+JOIN solo_songs
+ON kpop_group.id=solo_songs.singer_id ORDER BY spotify_monthlylisteners DESC;
+
